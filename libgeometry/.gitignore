@@ -1,0 +1,6 @@
+test-libgeometry
+*.o
+*.d
+*.so
+docs/html/
+docs/latex/
