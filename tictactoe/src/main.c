@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
     int opt;
-    int verbosity = 0, num_games_opt = 0;
+    int verbosity = 0, num_games_opt = 1000;
     char *strategyX = NULL, *strategyO = NULL;
 
     while ((opt = getopt(argc, argv, "X:O:n:vh")) != -1)
@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             verbosity++;
             break;
         case 'h':
-            printf("Usage: tictactoe -X STRATEGY -O STRATEGY [-v|-vv|-vvv]\n");
+            printf("Usage: tictactoe -X STRATEGY -O STRATEGY -n NUM_GAMES [-v|-vv|-vvv]\n");
             exit(0);
             break;
         default:
