@@ -65,10 +65,15 @@ bool on_segment(segment_t *s, point_t *q)
     point_t *p = s->p1;
     point_t *r = s->p2;
 
-    if (q->x == p->x && q->y == p->y)
+    /* If segment and point are not colinear, the
+     * point can't be on the segment */
+    if (point_orientation(p, r, q) != 0)
         return false;
 
-    if (q->x == r->x && q->y == r->y)
+    /* If the point is the same as either of the
+     * segment points, we don't consider it to be
+     * on the segment */
+    if ((q->x == p->x && q->y == p->y) || (q->x == r->x && q->y == r->y))
         return false;
 
     if (q->x <= max(p->x, r->x) && q->x >= min(p->x, r->x) &&
